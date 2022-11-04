@@ -1,10 +1,10 @@
 <?php
 
-use App\Charcter;
+use App\Character;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$arthur = new Charcter("Arthur");
+$arthur = new Character("Arthur");
 ?>
 
 <!DOCTYPE html>

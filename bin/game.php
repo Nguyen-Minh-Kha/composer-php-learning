@@ -1,9 +1,9 @@
 <?php
 
-use App\Charcter;
+use App\Character;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 echo 'my gaem !';
 
-$arthur = new Charcter("Arthur");
+$arthur = new Character("Arthur");
