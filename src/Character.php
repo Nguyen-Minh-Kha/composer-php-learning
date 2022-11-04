@@ -18,9 +18,11 @@ class Character
 
     protected int $naturalHeal = 2;
 
-    public function __construct(string $name)
+    public function __construct(string $name, Weapon $weapon, Armor $armor)
     {
         $this->name = $name;
+        $this->addArmor($armor);
+        $this->addWeapon($weapon);
     }
 
     // getters

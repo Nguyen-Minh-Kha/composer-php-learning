@@ -11,21 +11,10 @@ require __DIR__ . '/../vendor/autoload.php';
 echo 'my gaem !';
 
 // Arthur King of the Britons
-$arthur = new Character("Arthur");
-$excalibur = new Weapon("Excalibur", 15);
-$holyArmor = new Armor("Holy Armor", 25);
-
-$arthur->addWeapon($excalibur);
-$arthur->addArmor($holyArmor);
-
+$arthur = new Character("Arthur", new Weapon("Excalibur", 15), new Armor("Holy Armor", 25));
 
 // Tim the Enchanter
-$tim = new Character("Tim");
-$explosion = new Weapon("Explosion", 50);
-$robe = new Armor("Mage robe", 5);
-
-$tim->addWeapon($explosion);
-$tim->addArmor($robe);
+$tim = new Character("Tim", new Weapon("Explosion", 50), new Armor("Mage robe", 5));
 
 // characters
 
@@ -36,6 +25,7 @@ echo "</br>";
 echo $tim;
 
 // arthur hit tim 
+echo "arthur hits tim";
 
 $attack = new AttackAction("attack");
 
@@ -44,6 +34,8 @@ $arthur->doAction($attack, $tim);
 echo $tim;
 
 // tim naturalHeal himself 
+
+echo "tim heals himself";
 
 $timRegen = new HealAction("timRegen");
 
