@@ -3,6 +3,8 @@
 use App\Character;
 use App\Weapon;
 use App\Armor;
+use App\AttackAction;
+use App\HealAction;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -30,5 +32,21 @@ $tim->addArmor($robe);
 echo $arthur;
 
 echo "</br>";
+
+echo $tim;
+
+// arthur hit tim 
+
+$attack = new AttackAction("attack");
+
+$arthur->doAction($attack, $tim);
+
+echo $tim;
+
+// tim naturalHeal himself 
+
+$timRegen = new HealAction("timRegen");
+
+$tim->doAction($timRegen);
 
 echo $tim;
