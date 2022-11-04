@@ -16,6 +16,8 @@ class Character
 
     protected Weapon $weapon;
 
+    protected int $naturalHeal = 2;
+
     public function __construct(string $name)
     {
         $this->name = $name;
@@ -53,6 +55,18 @@ class Character
         return $this->life == 0;
     }
 
+    public function getNaturalHeal(): int
+    {
+        return $this->naturalHeal;
+    }
+
+    // setters
+
+    public function setLife(int $life): void
+    {
+        $this->life = $life;
+    }
+
     // add weapon and armor
 
     public function addWeapon(Weapon $weapon)
@@ -65,6 +79,8 @@ class Character
         $this->armor = $armor;
     }
 
+    // doAction
+
     public function doAction(Action $action, Character $target = null)
     {
         $action->execute($this, $target);
@@ -76,8 +92,8 @@ class Character
             <h3> $this->name </h3>
             <ul>
                 <li> HP  :  $this->life / $this->maxlife </li>
-                <li> Weapon :  $this->weapon </li>
-                <li> Armor :  $this->armor </li>
+                <li> Weapon :  {$this->weapon->getName()} / Damage : {$this->weapon->getDamage()} </li>
+                <li> Armor :  {$this->armor->getName()} / Protection : {$this->armor->getProtection()} </li>
             </ul>
         ";
     }
