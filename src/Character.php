@@ -65,6 +65,11 @@ class Character
         $this->armor = $armor;
     }
 
+    public function doAction(Action $action, Character $target = null)
+    {
+        $action->execute($this, $target);
+    }
+
     public function __toString(): string
     {
         return "
