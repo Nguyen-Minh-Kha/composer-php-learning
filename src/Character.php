@@ -18,6 +18,8 @@ class Character
 
     protected int $naturalHeal = 2;
 
+    protected Inventory $inventory;
+
     public function __construct(string $name, Weapon $weapon, Armor $armor)
     {
         $this->name = $name;
@@ -62,11 +64,21 @@ class Character
         return $this->naturalHeal;
     }
 
+    public function getInventory(): Inventory
+    {
+        return $this->inventory;
+    }
+
     // setters
 
     public function setLife(int $life): void
     {
         $this->life = $life;
+    }
+
+    public function setInventory(Inventory $inventory): void
+    {
+        $this->inventory = $inventory;
     }
 
     // add weapon and armor
@@ -88,14 +100,14 @@ class Character
         $action->execute($this, $target);
     }
 
+
     public function __toString(): string
     {
         return "
             <h3> $this->name </h3>
             <ul>
                 <li> HP  :  $this->life / $this->maxlife </li>
-                <li> Weapon :  {$this->weapon->getName()} / Damage : {$this->weapon->getDamage()} </li>
-                <li> Armor :  {$this->armor->getName()} / Protection : {$this->armor->getProtection()} </li>
+                {$this->inventory}
             </ul>
         ";
     }
