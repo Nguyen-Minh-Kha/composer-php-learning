@@ -1,2 +1,9 @@
 php -S localhost:6363 -t public/
 
+composer i
+
+composer init
+
+launch script
+
+php bin/test.php
